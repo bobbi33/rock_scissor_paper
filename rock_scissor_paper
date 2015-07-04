@@ -1,0 +1,57 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+char computer();
+
+int main(){
+	int c = 0;
+	int ran = 0;
+
+	printf("Welcome to game!\n");
+
+	while(1){
+		printf("what to want to give?\n");
+		printf("0: scissor\n");
+		printf("1: rock\n");
+		printf("2: paper\n");
+		printf("3: I quit\n");
+
+		scanf("%d",&c);
+		switch(c){
+		case 0 : printf("You gave scissor\n"); break;
+		case 1 : printf("You gave rock\n"); break;
+		case 2 : printf("You gave paper\n"); break;
+		case 3 : printf("Good bye!\n"); return 0; break;
+		default : printf("Error!\n"); break;
+		}
+
+		ran = rand()%3;
+
+		switch(ran){
+		case 0 : printf("Computer gave scissor\n"); break;
+		case 1 : printf("Computer gave rock\n"); break;
+		case 2 : printf("Computer gave paper\n"); break;
+		default : printf("Error!\n"); break;
+		}
+
+		if(c == ran){
+			printf("Equal! \n");
+		}else if(c > ran){
+			if((c == 2)&&(ran ==0)){
+				printf("You lose!\n");
+			}else{
+				printf("You win!\n");
+			}
+		}else if(c < ran){
+			if((c == 0) &&(ran == 2)){
+				printf("You win!\n");
+			}else{
+				printf("You lose!\n");
+			}
+		}
+	}
+
+	getchar();
+	return 0;
+}
